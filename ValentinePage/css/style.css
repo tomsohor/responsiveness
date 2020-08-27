@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  z-index: 99;
+  box-shadow: 0 0 10px #000;
+  background: transparent;
+}
+header .logo {
+  flex: 1;
+  color: #222;
+  text-shadow: 0 0 2px #000;
+  margin-left: 50px;
+}
+header .search-box {
+  flex: 1;
+  position: relative;
+}
+.search-box input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  background: #444;
+  border-radius: 30px;
+  color: white;
+  padding-left: 5px;
+  padding-right: 40px;
+}
+.search-box button {
+  cursor: pointer; /* pionter transformation on specific element */
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  border: none;
+  position: absolute; /*asolute from parent base on below*/
+  top: 0px;
+  right: 0px;
+  transform: scale(0.8); /* shrink down*/
+}
+header ul {
+  flex: 2;
+  display: flex; /* display horizontally*/
+  justify-content: space-evenly;
+}
+header ul li {
+  list-style: none;
+}
+header ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px 15px;
+}
+header ul li a:hover {
+  border-bottom: 2px solid cadetblue;
+}
+header .menu {
+  font-size: 2.5em;
+  display: none;
+}
+/*--------section-------*/
+section {
+  min-width: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center; /* horizontally middle*/
+}
+section .photo {
+  position: absolute;
+  max-width: 500px;
+  height: 500px;
+  width: 100%;
+  right: 50px;
+  top: 250px;
+  /* transform: translateY(-50%); */
+  z-index: 1;
+}
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* fit image*/
+  box-shadow: 0 0 10px #111;
+}
+section .content {
+  width: 80%;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  background: rgb(255, 2, 65);
+  padding: 100px 350px 100px 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: whitesmoke;
+}
+.content h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.content h3 {
+  font-size: 1.7em;
+  margin-bottom: 20px;
+}
+.content p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.content a {
+  color: #000;
+  text-decoration: none;
+  background-color: white;
+  width: 150px;
+  padding: 10px 0;
+  text-align: center;
+  font-weight: 700;
+}
+
+/*------shop, contact----*/
+#shop .content,
+#contact .content {
+  width: 100%;
+  padding: 100px;
+}
+#shop .content {
+  background: gold;
+  text-align: center;
+}
+#sake1,
+#sake2 {
+  position: relative;
+  height: 100vh;
+}
+#contact .content {
+  background: rgb(0, 191, 255);
+}
+#shop .images {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+#shop .images img {
+  width: 30%;
+}
+/*------responsive--------*/
+@media (max-width: 1200px) {
+  section .photo {
+    position: absolute;
+    max-width: 400px;
+    height: 300px;
+  }
+}
+@media (max-width: 1000px) {
+  section .photo {
+    position: relative;
+    max-width: 1000px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    transform: translateY(0);
+  }
+  #sake1,
+  #sake2 {
+    position: relative;
+    height: 0vh;
+  }
+  section .content {
+    width: 100%;
+    padding: 20%;
+    position: relative;
+  }
+  #shop .content {
+    position: relative;
+    top: 0;
+  }
+  #contact .content {
+    position: relative;
+    top: 0;
+  }
+  header ul {
+    position: fixed;
+    top: 100px;
+    right: 100%;
+    background: white;
+    height: calc(100vh - 100px);
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+  }
+  header .menu {
+    display: block;
+    width: 100px;
+    text-align: center;
+  }
+  #ch1:checked ~ ul {
+    right: 0;
+  }
+  #shop .content {
+    padding: 20px;
+  }
+  #shop .images {
+    flex-wrap: wrap;
+    height: 100%;
+    overflow: auto;
+    margin-top: 20px;
+  }
+  #shop .images img {
+    min-width: 280px;
+    height: 300px;
+    margin: 10px auto;
+  }
+}
+input[type="checkbox"] {
+  display: none;
+}
+@media (max-width: 500px) {
+  header .logo {
+    margin-left: 10px;
+  }
+  .logo .h1 {
+    font-size: 1.5em;
+  }
+  header ul {
+    width: 100%;
+  }
+  #contact .content {
+    padding: 20px;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
